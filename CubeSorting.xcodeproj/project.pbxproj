@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BAD5389A1BB9B5D8004AD892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD538991BB9B5D8004AD892 /* main.cpp */; };
+		BAD538A81BBC5190004AD892 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD538A61BBC5190004AD892 /* Geometry.cpp */; };
+		BAD538AB1BBE72A6004AD892 /* GeomCV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAD538A91BBE72A6004AD892 /* GeomCV.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,11 @@
 /* Begin PBXFileReference section */
 		BAD538961BB9B5D8004AD892 /* CubeSorting */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CubeSorting; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD538991BB9B5D8004AD892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BAD538A41BBAFFFC004AD892 /* GradDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradDesc.h; sourceTree = "<group>"; };
+		BAD538A61BBC5190004AD892 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
+		BAD538A71BBC5190004AD892 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		BAD538A91BBE72A6004AD892 /* GeomCV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeomCV.cpp; sourceTree = "<group>"; };
+		BAD538AA1BBE72A6004AD892 /* GeomCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeomCV.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				BAD538991BB9B5D8004AD892 /* main.cpp */,
+				BAD538A91BBE72A6004AD892 /* GeomCV.cpp */,
+				BAD538AA1BBE72A6004AD892 /* GeomCV.h */,
+				BAD538A41BBAFFFC004AD892 /* GradDesc.h */,
+				BAD538A61BBC5190004AD892 /* Geometry.cpp */,
+				BAD538A71BBC5190004AD892 /* Geometry.h */,
 			);
 			path = CubeSorting;
 			sourceTree = "<group>";
@@ -88,7 +100,7 @@
 		BAD5388E1BB9B5D8004AD892 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Henry Jackson";
 				TargetAttributes = {
 					BAD538951BB9B5D8004AD892 = {
@@ -119,6 +131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD5389A1BB9B5D8004AD892 /* main.cpp in Sources */,
+				BAD538AB1BBE72A6004AD892 /* GeomCV.cpp in Sources */,
+				BAD538A81BBC5190004AD892 /* Geometry.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +159,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -205,14 +220,40 @@
 		BAD5389E1BB9B5D8004AD892 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+					"-lopencv_core",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
 		BAD5389F1BB9B5D8004AD892 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+					"-lopencv_core",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -235,6 +276,7 @@
 				BAD5389F1BB9B5D8004AD892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
