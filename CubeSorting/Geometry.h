@@ -95,7 +95,7 @@ namespace geom {
     class Objective : VirtualGeom {
     public:
         /*
-         Takes in user input. Vector should have length 7. Also constructs the vector of visible vertices in the corret order.
+         Takes in user input. Vector should have length 7. Also constructs the vector of visible vertices in the correct order.
          */
         Objective(std::vector<Point2d> userInput);
         double operator()(vec params);

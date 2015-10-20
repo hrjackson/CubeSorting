@@ -47,8 +47,7 @@ namespace gd{
      Numerically calculates the gradient of the function at the position theta.
      */
     template<typename Functor>
-    std::vector<double> findGradient(Functor F,
-                                     std::vector<double> theta){
+    std::vector<double> findGradient(Functor F, std::vector<double> theta){
         double dTheta = 0.0001; // Smaller -> better approximation
         double value = F(theta);
         vec newTheta = theta;

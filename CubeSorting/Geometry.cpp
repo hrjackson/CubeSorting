@@ -86,8 +86,7 @@ namespace geom {
         return q;
     }
     
-    Point2d VirtualGeom::_project(Point3d p,
-                                  double cameraDist){
+    Point2d VirtualGeom::_project(Point3d p, double cameraDist){
         Point2d v(p.xyz[1], p.xyz[2]);
         double lambda = (-cameraDist/10)/(p.xyz[0] - cameraDist);
         v = lambda*v;
@@ -160,6 +159,10 @@ namespace geom {
     
     std::vector<Point2d> Cube::projectPoints(){
         return projected;
+    }
+    
+    vec Cube::getParams(){
+        return params;
     }
     
     std::vector<Point3d> Cube::_generateVertices(){
